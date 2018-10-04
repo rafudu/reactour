@@ -478,7 +478,8 @@ class TourPortal extends Component {
             accentColor={accentColor}
           >
             {steps[current] &&
-              (typeof steps[current].content === 'function'
+              (typeof steps[current].content === 'function' &&
+              (true || (steps[current].waitForDOM && inDOM))
                 ? steps[current].content({
                     goTo: this.gotoStep,
                     inDOM,
@@ -492,7 +493,20 @@ class TourPortal extends Component {
                   : current + 1}
               </Badge>
             )}
-            {showTooltipArrow && <TooltipArrow />}
+            {showTooltipArrow && (
+              <TooltipArrow
+                targetTop={targetTop}
+                targetRight={targetRight}
+                targetBottom={targetBottom}
+                targetLeft={targetLeft}
+                windowWidth={windowWidth}
+                windowHeight={windowHeight}
+                helperWidth={helperWidth}
+                helperHeight={helperHeight}
+                helperPosition={helperPosition}
+                padding={maskSpace}
+              />
+            )}
             {(showButtons || showNavigation) && (
               <Controls data-tour-elem="controls">
                 {showButtons && (

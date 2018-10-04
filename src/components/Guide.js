@@ -88,7 +88,9 @@ const Guide = styled.div`
     }
 
     const p = pos(helperPosition)
-
+    console.log(`p[0]:${p[0]}`)
+    console.log(`targetLeft:${targetLeft}`)
+    console.log(`${p[0] - targetLeft}`)
     return `translate(${p[0]}px, ${p[1]}px)`
   }};
 `
