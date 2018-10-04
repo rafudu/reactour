@@ -505,6 +505,7 @@ class TourPortal extends Component {
                 helperHeight={helperHeight}
                 helperPosition={helperPosition}
                 padding={maskSpace}
+                styles={steps[current].style ? steps[current].style : {}}
               />
             )}
             {(showButtons || showNavigation) && (

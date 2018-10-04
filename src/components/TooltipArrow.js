@@ -7,7 +7,11 @@ const TooltipArrow = styled.span`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid var(--reactour-accent);
+  border-bottom: 10px solid
+    ${props =>
+      props.styles && props.styles.backgroundColor
+        ? props.styles.backgroundColor
+        : `var(--reactour-accent)`};
   top: -10px;
   left: -0;
   transform: ${props => {
