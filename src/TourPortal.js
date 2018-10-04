@@ -12,6 +12,7 @@ import {
   Navigation,
   Dot,
   SvgMask,
+  TooltipArrow,
 } from './components/index'
 import * as hx from './helpers'
 
@@ -390,6 +391,7 @@ class TourPortal extends Component {
       showNavigation,
       showNavigationNumber,
       showNumber,
+      showTooltipArrow,
       onRequestClose,
       maskSpace,
       lastStepNextButton,
@@ -490,6 +492,7 @@ class TourPortal extends Component {
                   : current + 1}
               </Badge>
             )}
+            {showTooltipArrow && <TooltipArrow />}
             {(showButtons || showNavigation) && (
               <Controls data-tour-elem="controls">
                 {showButtons && (
