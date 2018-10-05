@@ -52,9 +52,7 @@ const transformAmountForPosition = props => {
       return `translate(0,0)`
   }
 }
-const TooltipArrow = styled.span.attrs({
-  transformAttrs: props => ({ ...hx.getTransformProps(props) }),
-})`
+const TooltipArrow = styled.span`
   --arrow-width: ${props => (props.width ? props.width : '0.625rem')};
   --arrow-background: ${props =>
     props.styles && props.styles.backgroundColor
@@ -69,5 +67,9 @@ const TooltipArrow = styled.span.attrs({
     ]} top: calc(var(--arrow-width) * -1);
   transform: ${props => transformAmountForPosition(props)};
 `
+const TooltipArrowWrapper = props => {
+  const transformAttrs = { ...hx.getTransformProps(props) }
+  return <TooltipArrow transformAttrs={transformAttrs} {...props} />
+}
 
-export default TooltipArrow
+export default TooltipArrowWrapper
