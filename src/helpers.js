@@ -38,7 +38,7 @@ export const bestPositionOf = positions => {
     .map(p => p.position)
 }
 
-export const getTransform = props => {
+export const getTransformProps = props => {
   const {
     targetTop,
     targetRight,
@@ -72,10 +72,16 @@ export const getTransform = props => {
     const positionsOrder = bestPositionOf(available)
     for (let j = 0; j < positionsOrder.length; j++) {
       if (couldPositionAt(positionsOrder[j])) {
-        return coords[positionsOrder[j]]
+        return {
+          coords: coords[positionsOrder[j]],
+          position: positionsOrder[j],
+        }
       }
     }
-    return coords.center
+    return {
+      coords: coords.center,
+      position: 'center',
+    }
   }
 
   const pos = helperPosition => {
@@ -102,7 +108,10 @@ export const getTransform = props => {
       ],
     }
     if (helperPosition === 'center' || couldPositionAt(helperPosition)) {
-      return coords[helperPosition]
+      return {
+        coords: coords[helperPosition],
+        position: helperPosition,
+      }
     }
     return autoPosition(coords)
   }

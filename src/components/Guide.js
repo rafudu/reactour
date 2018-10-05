@@ -19,8 +19,8 @@ const Guide = styled.div`
   border-radius: ${props => props.rounded}px;
 
   transform: ${props => {
-    const translate = hx.getTransform(props)
-    return `translate(${translate[0]}px, ${translate[1]}px)`
+    const translate = hx.getTransformProps(props)
+    return `translate(${translate.coords[0]}px, ${translate.coords[1]}px)`
   }};
 `
 export default Guide
