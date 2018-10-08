@@ -13,6 +13,8 @@
   </a>
 </p>
 
+This is a fork from: [https://github.com/elrumordelaluz/reactour](https://github.com/elrumordelaluz/reactour)
+
 ### Install
 
 ```
