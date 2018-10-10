@@ -21,18 +21,20 @@ const arrowDirectionForPosition = {
     left: 100%;
   `,
   [BOTTOM]: `
+
     border-right: var(--arrow-width) solid transparent;
     border-left: var(--arrow-width) solid transparent;
     border-bottom: var(--arrow-width) solid var(--arrow-background);
     left: 0;
-    bottom:100%;
+    bottom: calc(100% - 1px);
   `,
   [TOP]: `
+
     border-right: var(--arrow-width) solid transparent;
     border-left: var(--arrow-width) solid transparent;
     border-top: var(--arrow-width) solid var(--arrow-background);
     left: 0;
-    top: 100%;
+    top: calc(100% - 1px);
   `,
   [CENTER]: `
   display: none`,
@@ -61,10 +63,7 @@ const TooltipArrow = styled.span`
   position: absolute;
   width: 0;
   height: 0;
-  ${props =>
-    arrowDirectionForPosition[
-      props.transformAttrs.position
-    ]} top: calc(var(--arrow-width) * -1);
+  ${props => arrowDirectionForPosition[props.transformAttrs.position]}
   transform: ${props => transformAmountForPosition(props)};
 `
 const TooltipArrowWrapper = props => {
