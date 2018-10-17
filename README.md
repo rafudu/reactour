@@ -91,6 +91,7 @@ const steps = [
 | `showNavigation`            | Show **helper** navigation dots                                                                                         | `bool`        | `true`                                               |             |
 | `showNavigationNumber`      | Show number when hovers on each navigation dots                                                                         | `bool`        | `true`                                               |             |
 | `showNumber`                | Show **helper** number badge                                                                                            | `bool`        | `true`                                               |             |
+| `showTooltipArrow`          | Show tooltip arrows pointing to target element                                                                          | `bool`        | `true`                                               |             |
 | `startAt`                   | Starting step each time the Tour is open                                                                                | `number`      |                                                      |             |
 | `steps`                     | Array of steps with info and `props`                                                                                    | [view bellow] |                                                      | ✅          |
 | `update`                    | Value to listen if a forced update is needed                                                                            | `string`      |                                                      |             |
@@ -108,6 +109,7 @@ steps: PropTypes.arrayOf(PropTypes.shape({
   'action': PropTypes.func,
   'style': PropTypes.object,
   'stepInteraction': PropTypes.bool,
+  'maskClickHandler': PropTypes.bool, // receives a `closeTour` fn as first argument which acts exactly as the `closeWithMask` prop.
 })),
 ```
 

@@ -29,7 +29,7 @@ const arrowDirectionForPosition = {
     bottom: calc(100% - 1px);
   `,
   [TOP]: `
-
+    margin-bottom: 1px;
     border-right: var(--arrow-width) solid transparent;
     border-left: var(--arrow-width) solid transparent;
     border-top: var(--arrow-width) solid var(--arrow-background);
