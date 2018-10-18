@@ -109,7 +109,7 @@ steps: PropTypes.arrayOf(PropTypes.shape({
   'action': PropTypes.func,
   'style': PropTypes.object,
   'stepInteraction': PropTypes.bool,
-  'maskClickHandler': PropTypes.bool, // receives a `closeTour` fn as first argument which acts exactly as the `closeWithMask` prop.
+  'maskClickHandler': PropTypes.func,
 })),
 ```
 

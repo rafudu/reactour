@@ -294,12 +294,15 @@ class TourPortal extends Component {
   }
 
   maskClickHandler = e => {
-    const { closeWithMask, onRequestClose } = this.props
+    const { closeWithMask, onRequestClose, maskClickHandler } = this.props
     if (
       closeWithMask &&
       !e.target.classList.contains(CN.mask.disableInteraction)
     ) {
       onRequestClose(e)
+    }
+    if (maskClickHandler) {
+      maskClickHandler()
     }
   }
 
