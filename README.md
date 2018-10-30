@@ -99,6 +99,7 @@ const steps = [
 
 ```js
 steps: PropTypes.arrayOf(PropTypes.shape({
+  'follow': PropTypes.bool, // Should the guide follow the element when scrolling
   'selector': PropTypes.string,
   'content': PropTypes.oneOfType([
     PropTypes.node,
