@@ -164,10 +164,18 @@ class TourPortal extends Component {
     )
     // TODO: debounce it.
     window.addEventListener('resize', this.showStep, false)
+    window.addEventListener('scroll', this.recalculateStepPosition, false)
     window.addEventListener('keydown', this.keyDownHandler, false)
   }
-
-  showStep = () => {
+  recalculateStepPosition = () => {
+    const { steps } = this.props
+    const { current } = this.state
+    const step = steps[current]
+    if (step.follow) {
+      this.showStep(false)
+    }
+  }
+  showStep = (scrollToStep = true) => {
     const { steps } = this.props
     const { current } = this.state
     const step = steps[current]
@@ -230,7 +238,7 @@ class TourPortal extends Component {
 
     if (node) {
       const cb = () => stepCallback(node)
-      this.calculateNode(node, step.position, cb)
+      this.calculateNode(node, step.position, cb, step.follow)
     } else {
       this.setState(
         setNodeState(null, this.helper, step.position),
@@ -246,7 +254,7 @@ class TourPortal extends Component {
     }
   }
 
-  calculateNode = (node, stepPosition, cb) => {
+  calculateNode = (node, stepPosition, cb, follow) => {
     const { scrollDuration, inViewThreshold, scrollOffset } = this.props
     const attrs = hx.getNodeRect(node)
     const w = Math.max(
@@ -257,7 +265,7 @@ class TourPortal extends Component {
       document.documentElement.clientHeight,
       window.innerHeight || 0
     )
-    if (!hx.inView({ ...attrs, w, h, threshold: inViewThreshold })) {
+    if (!follow && !hx.inView({ ...attrs, w, h, threshold: inViewThreshold })) {
       const parentScroll = Scrollparent(node)
       scrollSmooth.to(node, {
         context: hx.isBody(parentScroll) ? window : parentScroll,
