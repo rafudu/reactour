@@ -173,16 +173,15 @@ class TourPortal extends Component {
     const { steps } = this.props
     const { current } = this.state
     const step = steps[current]
-    if (step.follow) {
-      this.showStep(false)
+    if (step.follow && this.helper) {
+      this.showStep()
     }
   }
-  showStep = (scrollToStep = true) => {
+  showStep = () => {
     const { steps } = this.props
     const { current } = this.state
     const step = steps[current]
     const node = step.selector ? document.querySelector(step.selector) : null
-
     const stepCallback = o => {
       if (step.action && typeof step.action === 'function') {
         step.action(o)
