@@ -173,7 +173,7 @@ class TourPortal extends Component {
     const { steps } = this.props
     const { current } = this.state
     const step = steps[current]
-    if (step.follow) {
+    if (step.follow && this.helper) {
       this.showStep()
     }
   }
@@ -277,10 +277,7 @@ class TourPortal extends Component {
         },
       })
     } else {
-      if (follow && this.helper) {
-        // Helper still exists on the page, follow it
-        this.setState(setNodeState(node, this.helper, stepPosition), cb)
-      }
+      this.setState(setNodeState(node, this.helper, stepPosition), cb)
     }
   }
 
