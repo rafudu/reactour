@@ -26,6 +26,7 @@ class Tour extends Component {
     isOpen: false,
     portalClassName: 'reactour-portal',
     closeWithMask: true,
+    showCloseButton: true,
     parentSelector() {
       return document.body
     },

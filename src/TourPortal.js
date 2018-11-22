@@ -58,6 +58,7 @@ class TourPortal extends Component {
         stepInteraction: PropTypes.bool,
       })
     ),
+    showCloseButton: PropTypes.bool,
     update: PropTypes.string,
     updateDelay: PropTypes.number,
     disableInteraction: PropTypes.bool,
@@ -77,6 +78,7 @@ class TourPortal extends Component {
     showNavigation: true,
     showNavigationNumber: true,
     showButtons: true,
+    showCloseButton: true,
     showNumber: true,
     scrollDuration: 1,
     maskSpace: 10,
@@ -399,6 +401,7 @@ class TourPortal extends Component {
       steps,
       maskClassName,
       showButtons,
+      showCloseButton,
       showNavigation,
       showNavigationNumber,
       showNumber,
@@ -574,7 +577,7 @@ class TourPortal extends Component {
               </Controls>
             )}
 
-            <Close onClick={onRequestClose} />
+            {showCloseButton && <Close onClick={onRequestClose} />}
           </Guide>
           {this.props.children}
         </div>
